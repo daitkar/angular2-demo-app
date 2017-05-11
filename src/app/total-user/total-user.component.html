@@ -1,0 +1,21 @@
+<h2>
+ do you want user name and it email id then click on getData button!</h2>
+                        
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>USERNAME</th>
+        <th>EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of items">
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<button (click)="getData()">getData</button>
+

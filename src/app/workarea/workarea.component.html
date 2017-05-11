@@ -1,0 +1,70 @@
+
+      <form class="form-horizontal" (ngSubmit)="OnSubmmit(f)" #f="ngForm">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div ngModelGroup="user">
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" 
+        id="username" 
+        name="username" 
+        ngModel 
+        placeholder="" 
+        class="input-xlarge" 
+        minlength="4"
+        required #username="ngModel">
+        <p *ngIf="!username.valid" class="help-block">Username can contain any letters or numbers, without spaces</p>
+        <div *ngIf="username.errors && (username.dirty || username.touched)"
+     class="alert alert-danger">
+     <div [hidden]="!username.errors.required">
+      Name is required
+    </div>
+        <div [hidden]="!username.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+    </div>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" ngModel placeholder="" class="input-xlarge"
+        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" 
+         required #email="ngModel">
+         <p *ngIf="!email.valid" class="help-block ">Please provide your E-mail</p>
+      </div>
+    </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" ngModel placeholder="" class="input-xlarge" required  #password="ngModel">
+        <p *ngIf="!password.valid" class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="password_confirm" name="password_confirm" ngModel placeholder="" class="input-xlarge" required #password_confirm="ngModel">
+        <p *ngIf="!password_confirm.valid" class="help-block">Please confirm password</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success" [disabled]="!f.valid">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

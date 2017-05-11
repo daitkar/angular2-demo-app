@@ -1,0 +1,60 @@
+
+<!-- <app-workarea></app-workarea> -->
+<hr>
+     <form class="form-horizontal" 
+     [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username"
+         name="username"
+          placeholder="" 
+         class="input-xlarge"
+         formControlName="username">
+        <p class="help-block" *ngIf="!myForm.controls['username'].valid">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge"
+        formControlName="email">
+        <p *ngIf="!myForm.controls['email'].valid" class="help-block">Please provide your E-mail</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge"
+        formControlName="password">
+        <p *ngIf="!myForm.controls['password'].valid" class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="confirmPassword">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="" class="input-xlarge"
+        formControlName="confirmPassword">
+        <p *ngIf="!myForm.controls['confirmPassword'].valid" class="help-block">Please confirm password</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success"[disabled]="!myForm.valid">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
